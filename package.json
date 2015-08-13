@@ -1,0 +1,33 @@
+{
+  "name": "tree-printer",
+  "version": "1.0.0",
+  "description": "CLI module to pretty print a tree generated from a collection (array of objects)",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hash-bang/tree-printer.git"
+  },
+  "keywords": [
+    "cli",
+    "tree",
+    "collection",
+    "pretty",
+    "print",
+    "printer"
+  ],
+  "author": "Matt Carter <m@ttcarter.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hash-bang/tree-printer/issues"
+  },
+  "homepage": "https://github.com/hash-bang/tree-printer#readme",
+  "dependencies": {
+    "lodash.merge": "^3.3.2"
+  }
+}
