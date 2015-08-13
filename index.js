@@ -1,3 +1,4 @@
+var _isFunction = require('lodash.isfunction');
 var _merge = require('lodash.merge');
 
 var getDepthMarker = function(settings) {
@@ -51,15 +52,27 @@ var treePrinter = function treePrinter(tree, options) {
 			depthMarker = getDepthMarker(settings);
 		}
 
+		// Determine name {{{
+		var name;
+		if (_isFunction(settings.fields.name)) {
+			name = settings.fields.name(branch);
+		} else {
+			name = branch[settings.fields.name];
+		}
+		// }}}
+
 		if (branch[settings.fields.children] && branch[settings.fields.children].length > 1) {
-			out += depthMarker + settings.format[isLast ? 'branchChildrenLast' : 'branchChildren'].replace('{{name}}', branch[settings.fields.name]) + settings.format.eol;
-			out += treePrinter(branch[settings.fields.children], {
+			out += depthMarker + settings.format[isLast ? 'branchChildrenLast' : 'branchChildren'].replace('{{name}}', name) + settings.format.eol;
+			var newSettings = {};
+			_merge(newSettings, settings);
+			_merge(newSettings, {
 				autoPrint: false,
 				depth: settings.depth + 1,
 				depths: settings.depths.concat([isLast]),
 			});
+			out += treePrinter(branch[settings.fields.children], newSettings);
 		} else { // No children
-			out += depthMarker + settings.format[isLast ? 'branchNoChildrenLast' : 'branchNoChildren'].replace('{{name}}', branch[settings.fields.name]) + settings.format.eol;
+			out += depthMarker + settings.format[isLast ? 'branchNoChildrenLast' : 'branchNoChildren'].replace('{{name}}', name) + settings.format.eol;
 		}
 	});
 

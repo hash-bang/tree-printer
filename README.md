@@ -80,6 +80,6 @@ The main `treePrinter(tree, options)` function takes the collection and an objec
 | `format.depthLast` | String   | `'  '`           | Formatter to use when drawing a depth marker that is also the last of a set |
 | `format.eol` | String         | `'\n'`           | Formatter to use to end a line output |
 | `fields`     | Object         | see below        | Object to indicate which fields should be used during formatting
-| `fields.name` | String        | `'name'`         | Which field to draw the nodes name from |
+| `fields.name` | String or Function | `'name'`         | Which field to draw the nodes name from. If this is a function its called as `callback(branch)` for each branch and expected to return a string |
 | `fields.children` | String    | `'children'`     | Which field to draw the nodes childrens from. This should be an array |
 | `autoPrint`  | Boolean        | `false`          | Whether to invoke `console.log` automatically when finished |

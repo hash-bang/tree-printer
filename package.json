@@ -1,6 +1,6 @@
 {
   "name": "tree-printer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "CLI module to pretty print a tree generated from a collection (array of objects)",
   "main": "index.js",
   "directories": {
@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/hash-bang/tree-printer#readme",
   "dependencies": {
+    "lodash.isfunction": "^3.0.6",
     "lodash.merge": "^3.3.2"
   }
 }
