@@ -1,6 +1,6 @@
 {
   "name": "tree-printer",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "CLI module to pretty print a tree generated from a collection (array of objects)",
   "main": "index.js",
   "directories": {
